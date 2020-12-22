@@ -3,38 +3,40 @@ package academico;
 import java.util.Scanner;
 
 public class CursoPosGrad extends Curso {
-    Scanner s = new Scanner(System.in);
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private String especialidade;
+	Scanner s = new Scanner(System.in);
 
-    public boolean setEspecialidade(String especialidade) {
-        if (especialidade.length() > 0) {
-            this.especialidade = especialidade;
-            return true;
-        } else {
-            System.out.println("Nome da especialidade invalido!");
-            return false;
-        }
-    }
+	private String especialidade;
 
-    public String getEspecialidade() {
-        return especialidade;
-    }
+	public boolean setEspecialidade(String especialidade) {
+		if (especialidade.length() > 0) {
+			this.especialidade = especialidade;
+			return true;
+		} else {
+			System.out.println("Nome da especialidade invalido!");
+			return false;
+		}
+	}
 
-    public void lerDados() {
-        super.lerDados();
+	public String getEspecialidade() {
+		return especialidade;
+	}
 
-        System.out.println("***Informe a especialidade do curso***");
-        while (!setEspecialidade(s.nextLine())) ;
+	public void lerDados() {
+		super.lerDados();
+		System.out.println("***Informe a especialidade do curso***");
+		while (!setEspecialidade(s.nextLine()))
+			;
 
-    }
+	}
 
-    public void mostrarDados() {
-        super.mostrarDados();
-//        System.out.println("Dados do Curso de Gradução: ");
-//        System.out.println("_______________________________");
-
-        System.out.println("Especialidade: " + this.especialidade);
-        System.out.println("_______________________________");
-    }
+	public void mostrarDados() {
+		super.mostrarDados();
+		System.out.println("Especialidade: " + this.especialidade);
+		System.out.println("_______________________________");
+	}
 }

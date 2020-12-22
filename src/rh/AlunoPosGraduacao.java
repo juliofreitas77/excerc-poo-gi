@@ -3,12 +3,19 @@ package rh;
 import java.util.Scanner;
 
 import academico.CursoPosGrad;
+import util.EntradaDeDados;
+
 
 public class AlunoPosGraduacao extends Aluno {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	Scanner s = new Scanner(System.in);
 
-	private CursoPosGrad cursoPosGrad = new CursoPosGrad();
+	private CursoPosGrad cursoPosGrad;
 	private String instituicaoPosGraduacao;
 	private Integer anoInicioPosGraduacao;
 	private Integer anoConclusaoPosGraduacao;
@@ -17,16 +24,10 @@ public class AlunoPosGraduacao extends Aluno {
 	public AlunoPosGraduacao() {
 	}
 
-	public AlunoPosGraduacao(CursoPosGrad cursoPosGrad, String instituicaoPosGraduacao, Integer anoInicioPosGraduacao,
-			Integer anoConclusaoPosGraduacao) {
+	public AlunoPosGraduacao(CursoPosGrad cursoPosGrad) {
 		super();
 		this.cursoPosGrad = cursoPosGrad;
-		this.instituicaoPosGraduacao = instituicaoPosGraduacao;
-		this.anoInicioPosGraduacao = anoInicioPosGraduacao;
-		this.anoConclusaoPosGraduacao = anoConclusaoPosGraduacao;
 	}
-	
-	
 
 	public void setCursoPosGrad(CursoPosGrad cursoPosGrad) {
 		this.cursoPosGrad = cursoPosGrad;
@@ -67,22 +68,19 @@ public class AlunoPosGraduacao extends Aluno {
 		System.out.println("***Aluno Pós Graduação***");
 		super.lerDados();
 
-		System.out.println("Curso de Pós graduacao***");
-		this.cursoPosGrad = new CursoPosGrad();
-		cursoPosGrad.lerDados();
+//		System.out.println("Curso de Pós graduacao***");
+//		this.cursoPosGrad = new CursoPosGrad();
+//		cursoPosGrad.lerDados();
 
 		System.out.println("Informe a instituicao:");
 		while (!setInstituicao(s.nextLine()))
 			;
 
 		System.out.println("Informe o ano de inicio:");
-		while (!setAnoInicio(s.nextInt()))
-			;
+		setAnoInicio(EntradaDeDados.lerInteiro());
 
 		System.out.println("Informe o ano de conclusao:");
-		while (!setConclusao(s.nextInt()))
-			;
-
+		setConclusao(EntradaDeDados.lerInteiro());
 	}
 
 	public void mostrarDados() {

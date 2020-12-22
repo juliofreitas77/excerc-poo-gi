@@ -2,6 +2,8 @@ package rh;
 
 import java.util.Scanner;
 
+import util.EntradaDeDados;
+
 public class TecnicoAdm extends Funcionario {
 	Scanner s = new Scanner(System.in);
 
@@ -42,10 +44,8 @@ public class TecnicoAdm extends Funcionario {
 	public void setSalario(Double salarioBase) {
 		if (salarioBase > 0) {
 			salario = salarioBase;
-
 		} else {
 			System.out.println("Salario invalido!");
-
 		}
 	}
 
@@ -60,7 +60,6 @@ public class TecnicoAdm extends Funcionario {
 		} else {
 			System.out.println("Valor Hora Extra invalido!");
 			return false;
-
 		}
 	}
 
@@ -75,7 +74,6 @@ public class TecnicoAdm extends Funcionario {
 		} else {
 			System.out.println("Quantidade Hora Extra invalido!");
 			return false;
-
 		}
 	}
 
@@ -85,9 +83,6 @@ public class TecnicoAdm extends Funcionario {
 
 	@Override
 	public double calcSalario() {
-		// Double salarioCalculado = 0.0;
-		// salarioCalculado = Funcionario.getPisoSalarial() + (valorHoraExtra *
-		// quantidadeHoraExtra);
 		setSalario(Funcionario.getPisoSalarial() + (valorHoraExtra * quantidadeHoraExtra));
 		return this.salario;
 	}
@@ -98,18 +93,15 @@ public class TecnicoAdm extends Funcionario {
 		super.lerDados();
 
 		System.out.println("Informe o cargo:");
-		while (!setCargo(s.nextLine()))
-			;
+		while (!setCargo(s.nextLine()));
 
 		System.out.println("Informe o departamento:");
-		while (!setDepartamento(s.nextLine()))
-			;
+		while (!setDepartamento(s.nextLine()));
 
 		TecnicoAdm.setValorHoraExtra(30.0);
 
 		System.out.println("Informe a quantidade de horas extras:");
-		while (!setQtdHoraExtra(s.nextInt()))
-			;
+		setQtdHoraExtra(EntradaDeDados.lerInteiro());
 	}
 
 	public void mostrarDados() {

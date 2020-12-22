@@ -1,21 +1,20 @@
 package academico;
 
-
-
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Curso {
+public abstract class Curso implements Serializable {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    Scanner s = new Scanner(System.in);
+	Scanner s = new Scanner(System.in);
 
     public String getCodigo;
     private String codigo;
     private String nome;
     private String duracao;
-    private ArrayList<Curso> cursos = new ArrayList<>();
-    private ArrayList<Disciplina> disciplinas = new ArrayList<>();
-
 
     public boolean setCodigo(String p_codigo){
         if(p_codigo.length() > 0 ){
@@ -55,72 +54,6 @@ public abstract class Curso {
         return codigo;
     }
 
-    public void cadastrar(Curso curso) {
-        this.cursos.add(curso); //ADICIONA o Curso NO ARRAY
-        System.out.println("Total de cursos inseridos...: ");
-        System.out.println(this.cursos.size());
-    }
-
-    public void listarCurso() {
-        cursos.forEach(curso -> mostrarDados());
-    }
-
-    //este método retorna o objeto Curso caso encontrado, ou null, caso não encotrado
-    public Curso buscar(String codigoCurso) {
-        Curso curso = null;
-        for (Curso objeto : this.cursos) {
-            if (objeto.getCodigo.equals(codigoCurso)) {
-                curso = objeto;
-                break;
-            }
-        }
-        return curso;
-    }
-
-    //este método usa o método buscar já implementado
-    public boolean excluir(String matricula) {
-        Curso curso = this.buscar(matricula);
-        if (curso != null) {
-            this.cursos.remove(curso);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void adicionarDisciplina (Disciplina disciplina) {
-        this.disciplinas.add(disciplina); //ADICIONA a Disciplina NO ARRAY
-        System.out.println("Total de disciplinas inseridas...: ");
-        System.out.println(this.disciplinas.size());
-    }
-
-    public void mostrarDisciplinas() {
-        disciplinas.forEach(disciplina -> disciplina.mostrarDados());
-
-    }
-
-    //este método retorna o objeto Disciplina caso encontrado, ou null, caso não encotrado
-    public Disciplina buscar(int codigo) {
-        Disciplina disciplina = null;
-        for (Disciplina objeto : this.disciplinas) {
-            if (objeto.getCodigo().equals(codigo)) {
-                disciplina = objeto;
-                break;
-            }
-        }
-        return disciplina;
-    }
-
-    //este método usa o método buscar já implementado
-    public boolean remover(int codigo) {
-        Disciplina disciplina = this.buscar(codigo);
-        if (disciplina != null) {
-            this.disciplinas.remove(disciplina);
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     public void lerDados() {
         System.out.println("Informe o codigo do curso:");
@@ -141,7 +74,5 @@ public abstract class Curso {
         System.out.println("Codigo: "+this.codigo);
         System.out.println("Nome: "+this.nome);
         System.out.println("Duraçao: "+this.duracao);
-        this.mostrarDisciplinas();
-       // System.out.println("_______________________________");
     }
 }

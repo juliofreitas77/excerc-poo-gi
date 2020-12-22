@@ -1,8 +1,7 @@
 package rh;
 
 public class ValidaCPF {
-
-    // CPF
+  
     private static final int[] weightSsn = { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
 
     private static int calculate(final String str, final int[] weight) {
