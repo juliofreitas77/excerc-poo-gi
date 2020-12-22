@@ -53,7 +53,6 @@ public class AlunoGraduacao extends Aluno {
 		}
 	}
 
-	
 
 	public Integer getAnoConclusaoGraduacao() {
 		return anoConclusaoGraduacao;
@@ -67,8 +66,8 @@ public class AlunoGraduacao extends Aluno {
 		System.out.println("***Aluno Graduação***");
 		super.lerDados();
 
-//		System.out.println("***Curso de Graduação***");
-//		getCursoGrad().lerDados();
+		System.out.println("***Curso de Graduação***");
+		getCursoGrad().lerDados();
 
 		System.out.println("Informe a instituicao:");
 		while (!setInstituicao(s.nextLine()));
@@ -90,7 +89,7 @@ public class AlunoGraduacao extends Aluno {
 		System.out.println("");
 		System.out.println("***Dados da graduação***");
 		System.out.println("_______________________________");
-//		System.out.println("Graduacao: " + this.cursoGrad.getNome());
+		System.out.println("Graduacao: " + this.cursoGrad.getNome());
 		System.out.println("Instituicao: " + this.instituicaoGraduacao);
 		System.out.println("Ano de inicio: " + this.anoInicioGraduacao);
 		System.out.println("Ano de conclusao: " + this.anoConclusaoGraduacao);

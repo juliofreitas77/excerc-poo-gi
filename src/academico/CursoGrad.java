@@ -27,6 +27,7 @@ public class CursoGrad extends Curso {
 	}
 
 	public void lerDados() {
+		System.out.println("");
 		System.out.println("**************Informações do curso************");		
 		super.lerDados();
 		System.out.println("Informe quantos periodos tem o curso:");
