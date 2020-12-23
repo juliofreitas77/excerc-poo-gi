@@ -3,10 +3,9 @@ package rh;
 import java.io.Serializable;
 import java.util.Scanner;
 
-@SuppressWarnings("serial")
 public abstract class Aluno extends Pessoa implements Serializable{
 
-	Scanner s = new Scanner(System.in);
+	transient Scanner s = new Scanner(System.in);
 
 	private String matricula;
 	private Byte situacao;
@@ -76,4 +75,11 @@ public abstract class Aluno extends Pessoa implements Serializable{
 		System.out.println("_______________________________");
 	}
 
+	@Override
+	public String toString() {
+		return "Aluno{" +
+				"matricula='" + matricula + '\'' +
+				", situacao=" + situacao +
+				'}';
+	}
 }

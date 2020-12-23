@@ -1,14 +1,12 @@
 package academico;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class CursoGrad extends Curso {
-	/**
-	 * 
-	 */
+public class CursoGrad extends Curso implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	Scanner s = new Scanner(System.in);
+	transient Scanner s = new Scanner(System.in);
 
 	private String periodo;
 

@@ -4,12 +4,9 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 public abstract class Curso implements Serializable {
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	Scanner s = new Scanner(System.in);
+	transient Scanner s = new Scanner(System.in);
 
     public String getCodigo;
     private String codigo;

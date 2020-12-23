@@ -1,9 +1,10 @@
 package rh;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Pessoa {
-    Scanner s = new Scanner(System.in);
+public abstract class Pessoa implements Serializable {
+    transient Scanner s = new Scanner(System.in);
 
     private String nome;
     private String endereco;

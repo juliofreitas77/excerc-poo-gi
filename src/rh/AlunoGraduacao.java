@@ -1,17 +1,16 @@
 package rh;
 
+import java.beans.Transient;
+import java.io.Serializable;
 import java.util.Scanner;
 
 import academico.CursoGrad;
 import util.EntradaDeDados;
 
-public class AlunoGraduacao extends Aluno {
-	/**
-	 * 
-	 */
+public class AlunoGraduacao extends Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	Scanner s = new Scanner(System.in);
+	transient Scanner s = new Scanner(System.in);
 
 	private CursoGrad cursoGrad;
 	private String instituicaoGraduacao;

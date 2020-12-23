@@ -1,11 +1,11 @@
 package persist;
 
-import java.util.ArrayList;
-
 import rh.Aluno;
 
-@SuppressWarnings("unchecked")
-public class DadosAlunos {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class DadosAlunos implements Serializable {
 
 	private static ArrayList<Aluno> alunos;
 
@@ -15,9 +15,10 @@ public class DadosAlunos {
 			alunos = new ArrayList<Aluno>();
 	}
 
-	public static void cadastrar(Aluno a) {
+	public static Boolean cadastrar(Aluno a) {
 		alunos.add(a);
 		boolean r = Persist.gravar(alunos, "alunos.dat");
+		return r;
 	}
 
 	public static ArrayList<Aluno> lerRegistros() {
